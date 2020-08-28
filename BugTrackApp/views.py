@@ -57,6 +57,7 @@ def edit_ticket(request,ticket_id):
     return render(request, 'form.html', {'form': form})
 
 
+@login_required
 def claim_ticket(request, ticket_id):
     ticket = bug_ticket.objects.filter(id=ticket_id).first()
     if ticket.status == 'New':
@@ -66,6 +67,7 @@ def claim_ticket(request, ticket_id):
         return HttpResponseRedirect('/')
 
 
+@login_required
 def complete_ticket(request, ticket_id):
     ticket = bug_ticket.objects.filter(id=ticket_id).first()
     if ticket.status == 'In Progress':
@@ -76,6 +78,7 @@ def complete_ticket(request, ticket_id):
         return HttpResponseRedirect('/')
 
 
+@login_required
 def invalidate_ticket(request, ticket_id):
     ticket = bug_ticket.objects.filter(id=ticket_id).first()
     ticket.status = 'Invalid'
@@ -96,7 +99,6 @@ def login_view(request):
                 return HttpResponseRedirect('/')
     form = login_form
     return render(request, 'form.html', {'form': form})
-
 
 
 def logout_view(request):
