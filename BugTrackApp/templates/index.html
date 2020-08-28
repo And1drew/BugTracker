@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>home page</h1>
+    <span>add a new ticker <a href="newticket/"> here</a></span>
+    <p style="width: 40%; line-height: 30px;">little note to self here: tickets must all start at new so in the creation form there
+        is no need to have anything other than title and description, everything else 
+        should be handled automatically.
+
+        a button should be avalible to claim tickets to the logged in user that should also change
+        status to in Progress
+
+        a button should be avalible to mark tickets as completed and change the appropriate fields.
+
+        a button should be avalible to mark tickets as invalid and change the appropriate fields.
+    </p>
+    <ul>
+        <h2>New Tickets</h2>
+        {% for ticket in tickets %}
+            {% if ticket.status == 'New'%}
+        <li>
+            {{ticket.title}}
+            <br>
+            {{ticket.description}}
+            <br>
+            {{ticket.status}}
+            <br>
+            {{ticket.created_by}}
+            <br>
+            {{ticket.date}}
+            <br>
+            {{ticket.assigned}}
+            <br>
+            <a href="post/{{ticket.id}}">View</a>
+        </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <hr>
+    <ul>
+        <h2>In Progress Tickets</h2>
+        {% for ticket in tickets %}
+            {% if ticket.status == 'In Progress'%}
+        <li>
+            {{ticket.title}}
+            <br>
+            {{ticket.description}}
+            <br>
+            {{ticket.status}}
+            <br>
+            {{ticket.created_by}}
+            <br>
+            {{ticket.date}}
+            <br>
+            {{ticket.assigned}}
+            <br>
+            <a href="post/{{ticket.id}}">View</a>
+        </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <hr>
+    <ul>
+        <h2>Completed Tickets</h2>
+        {% for ticket in tickets %}
+            {% if ticket.status == 'Done'%}
+        <li>
+            {{ticket.title}}
+            <br>
+            {{ticket.description}}
+            <br>
+            {{ticket.status}}
+            <br>
+            {{ticket.created_by}}
+            <br>
+            {{ticket.date}}
+            <br>
+            {{ticket.assigned}}
+            <br>
+            {{ticket.completed_by}}
+            <br>
+            <a href="post/{{ticket.id}}">View</a>
+        </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <hr>
+    <ul>
+        <h2>Invalid Tickets</h2>
+        {% for ticket in tickets %}
+            {% if ticket.status == 'Invalid' %}
+        <li>
+            {{ticket.title}}
+            <br>
+            {{ticket.description}}
+            <br>
+            {{ticket.status}}
+            <br>
+            {{ticket.created_by}}
+            <br>
+            {{ticket.date}}
+            <br>
+            {{ticket.assigned}}
+            <br>
+            <a href="post/{{ticket.id}}">View</a>
+        </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <span>logout <a href="logout/"> here</a></span>
+</html>

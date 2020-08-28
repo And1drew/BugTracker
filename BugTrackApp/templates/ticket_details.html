@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>
+        <a href="/claim/{{ticket.id}}/">claim</a>
+    </button>
+    <button>
+        <a href="/complete/{{ticket.id}}/">complete</a>
+    </button>
+    <button>
+        <a href="/invalidate/{{ticket.id}}/">invalidate</a>
+    </button>
+    <br>
+    <h2>
+        tick detail page for {{ticket.id}}
+    </h2>
+    <br>
+    Title: {{ticket.title}}
+    <br>
+    description: {{ticket.description}}
+    <br>
+    Status: {{ticket.status}}
+    <br>
+    created by: {{ticket.created_by}}
+    <br>
+    created at: {{ticket.date}}
+    <br>
+    assigned to: {{ticket.assigned}}
+    <br>
+    completed by: {{ticket.completed_by}}
+    <br>
+    <br>
+    <span>edit this ticket <a href="/post/{{ticket.id}}/edit/">here</a></span>
+</body>
+</html>
