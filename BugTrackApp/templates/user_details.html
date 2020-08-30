@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        hello {{request.user.username}}
+    </h1>
+    <h2>
+        tickets created by {{request.user}}
+    </h2>
+    <hr>
+    <ul>
+        {% for ticket in tickets %}
+            {% if ticket.created_by == request.user %}
+        <li>
+            <h3>
+                {{ticket.title}}
+            </h3>
+            <p>
+                {{ticket.description}}
+            </p>
+        </li>
+            {% endif %}
+        {% endfor%}
+    </ul>
+    <h2>
+        tickets assinged to {{request.user}}
+    </h2>
+    <hr>
+    <ul>
+        {% for ticket in tickets %}
+            {% if ticket.assigned == request.user.username %}
+            <li>
+                <h3>
+                    {{ticket.title}}
+                </h3>
+                <p>
+                    {{ticket.description}}
+                </p>
+            </li>
+            {% endif %}
+        {% endfor%}
+    </ul>
+    <h2>
+        tickets completed by {{request.user}}
+    </h2>
+    <hr>
+    <ul>
+        {% for ticket in tickets %}
+            {% if ticket.completed_by == request.user.username %}
+            <li>
+                <h3>
+                    {{ticket.title}}
+                </h3>
+                <p>
+                    {{ticket.description}}
+                </p>
+            </li>
+            {% endif %}
+        {% endfor%}
+    </ul>
+</body>
+</html>

@@ -12,4 +12,5 @@ urlpatterns = [
     path('claim/<int:ticket_id>/', views.claim_ticket),
     path('complete/<int:ticket_id>/', views.complete_ticket),
     path('invalidate/<int:ticket_id>/', views.invalidate_ticket),
+    path('userdetails/', views.user_details)
 ]

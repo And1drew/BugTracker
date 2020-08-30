@@ -65,6 +65,8 @@ def claim_ticket(request, ticket_id):
         ticket.assigned = request.user.username
         ticket.save()
         return HttpResponseRedirect('/')
+    else:
+        return HttpResponseRedirect('/')
 
 
 @login_required
@@ -76,6 +78,8 @@ def complete_ticket(request, ticket_id):
         ticket.completed_by = request.user.username
         ticket.save()
         return HttpResponseRedirect('/')
+    else:
+        return HttpResponseRedirect('/')
 
 
 @login_required
@@ -86,6 +90,12 @@ def invalidate_ticket(request, ticket_id):
     ticket.completed_by = None
     ticket.save()
     return HttpResponseRedirect('/')
+
+
+@login_required
+def user_details(request):
+    tickets = bug_ticket.objects.all()
+    return render(request, 'user_details.html', {'tickets': tickets})
 
 
 def login_view(request):
