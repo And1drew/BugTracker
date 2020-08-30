@@ -8,18 +8,8 @@
 <body>
     <h1>home page</h1>
     <span>add a new ticker <a href="newticket/"> here</a></span>
+    <br>
     <span>your user page: check your tickets <a href="userdetails/">here</a></span>
-    <p style="width: 40%; line-height: 30px;">little note to self here: tickets must all start at new so in the creation form there
-        is no need to have anything other than title and description, everything else 
-        should be handled automatically.
-
-        a button should be avalible to claim tickets to the logged in user that should also change
-        status to in Progress
-
-        a button should be avalible to mark tickets as completed and change the appropriate fields.
-
-        a button should be avalible to mark tickets as invalid and change the appropriate fields.
-    </p>
     <ul>
         <h2>New Tickets</h2>
         {% for ticket in tickets %}
